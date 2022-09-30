@@ -13,52 +13,58 @@
             "type": "object",
             "required": [
                 "TuningParameters"
-                  ],
-                  "properties": {
-                      "TuningParameters": {
-                          "type": "array",
-                          "items": {
-                              "type": "object",
-                              "required": [
-                                  "Name",
-                                  "Type",
-                                  "Values"
-                              ],
-                              "properties": {
-                                  "Name": {
-                                      "type": "string"
-                                  },
-                                  "Type": {
-                                      "enum": ["int", "uint", "float", "bool", "string"]
-                                  },
-                                  "Values": {
-                                      "type": "string"
-                                  }
-                              }
-                          }
-                      },
-                      "Conditions": {
-                          "type": "array",
-                          "items": {
-                              "type": "object",
-                              "required": [
-                                  "Parameters",
-                                  "Expression"
-                              ],
-                              "properties": {
-                                  "Parameters": {
-                                      "type": "array",
-                                      "items": {
-                                          "type": "string"
-                                      }
-                                  },
-                                  "Expression": {
-                                      "type": "string"
-                                  }
-                              }
-                          }
-                      }
-                  }
+            ],
+            "properties": {
+                "TuningParameters": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "required": [
+                            "Name",
+                            "Type",
+                            "Values"
+                        ],
+                        "properties": {
+                            "Name": {
+                                "type": "string"
+                            },
+                            "Type": {
+                                "enum": [
+                                    "int",
+                                    "uint",
+                                    "float",
+                                    "bool",
+                                    "string"
+                                ]
+                            },
+                            "Values": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "Conditions": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "required": [
+                            "Parameters",
+                            "Expression"
+                        ],
+                        "properties": {
+                            "Parameters": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "Expression": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
         },
         "Search": {
             "type": "object",
@@ -97,7 +103,11 @@
             ],
             "properties": {
                 "Type": {
-                    "enum": ["TuningDuration", "ConfigurationCount", "ConfigurationFraction"]
+                    "enum": [
+                        "TuningDuration",
+                        "ConfigurationCount",
+                        "ConfigurationFraction"
+                    ]
                 },
                 "BudgetValue": {
                     "type": "number"
@@ -111,17 +121,34 @@
                     "type": "integer"
                 },
                 "LoggingLevel": {
-                    "enum": ["Off", "Error", "Warning", "Info", "Debug"]
+                    "enum": [
+                        "Off",
+                        "Error",
+                        "Warning",
+                        "Info",
+                        "Debug"
+                    ]
                 },
                 "TimeUnit": {
-                    "enum": ["Nanoseconds", "Microseconds", "Milliseconds", "Seconds"]
+                    "enum": [
+                        "Nanoseconds",
+                        "Microseconds",
+                        "Milliseconds",
+                        "Seconds"
+                    ]
                 },
                 "OutputFile": {
                     "type": "string",
-                    "examples": ["ReductionOutput", "Results"]
+                    "examples": [
+                        "ReductionOutput",
+                        "Results"
+                    ]
                 },
                 "OutputFormat": {
-                    "enum": ["JSON", "XML"]
+                    "enum": [
+                        "JSON",
+                        "XML"
+                    ]
                 }
             }
         },
@@ -136,7 +163,11 @@
             ],
             "properties": {
                 "Language": {
-                    "enum": ["OpenCL", "CUDA", "Vulkan"]
+                    "enum": [
+                        "OpenCL",
+                        "CUDA",
+                        "Vulkan"
+                    ]
                 },
                 "CompilerOptions": {
                     "type": "array",
@@ -209,31 +240,82 @@
                                 "type": "string"
                             },
                             "Type": {
-                                "enum": ["bool", "int8", "uint8", "int16", "uint16", "int32", "uint32", "int64", "uint64", "half", "half2", "half4", "half8", "half16", "float", "float2", "float4", "float8", "float16", "double", "double2", "double4", "double8", "double16", "custom"]
+                                "enum": [
+                                    "bool",
+                                    "int8",
+                                    "uint8",
+                                    "int16",
+                                    "uint16",
+                                    "int32",
+                                    "uint32",
+                                    "int64",
+                                    "uint64",
+                                    "half",
+                                    "half2",
+                                    "half4",
+                                    "half8",
+                                    "half16",
+                                    "float",
+                                    "float2",
+                                    "float4",
+                                    "float8",
+                                    "float16",
+                                    "double",
+                                    "double2",
+                                    "double4",
+                                    "double8",
+                                    "double16",
+                                    "custom"
+                                ]
                             },
                             "Size": {
                                 "type": "integer",
-                                "examples": [720, 26000]
+                                "examples": [
+                                    720,
+                                    26000
+                                ]
                             },
                             "TypeSize": {
                                 "type": "integer",
-                                "examples": [4, 16]
+                                "examples": [
+                                    4,
+                                    16
+                                ]
                             },
                             "FillType": {
-                                "enum": ["Constant", "Random", "Generator", "Script", "BinaryRaw", "BinaryHDF"]
+                                "enum": [
+                                    "Constant",
+                                    "Random",
+                                    "Generator",
+                                    "Script",
+                                    "BinaryRaw",
+                                    "BinaryHDF"
+                                ]
                             },
                             "FillValue": {
                                 "type": "number",
-                                "examples": [40, 1.0]
+                                "examples": [
+                                    40,
+                                    1.0
+                                ]
                             },
                             "DataSource": {
                                 "type": "string"
                             },
                             "AccessType": {
-                                "enum": ["ReadOnly", "WriteOnly", "ReadWrite"]
+                                "enum": [
+                                    "ReadOnly",
+                                    "WriteOnly",
+                                    "ReadWrite"
+                                ]
                             },
                             "MemoryType": {
-                                "enum": ["Scalar", "Vector", "Local", "Symbol"]
+                                "enum": [
+                                    "Scalar",
+                                    "Vector",
+                                    "Local",
+                                    "Symbol"
+                                ]
                             }
                         }
                     }
@@ -242,4 +324,3 @@
         }
     }
 }
-
