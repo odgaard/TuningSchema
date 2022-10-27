@@ -1,0 +1,39 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://github.com/odgaard/TuningSchema/blob/main/MetadataSchema.json",
+    "title": "Open Autotuning Metadata Schema",
+    "type": "object",
+    "properties": {
+        "metadata": {
+            "type": "object",
+            "properties": {
+                "zenodo": {
+                    "type": "object",
+                    "description": "The zenodo metadata used to publish the artifact"
+                },
+                "hardware": {
+                    "type": "object",
+                    "properties": {
+                        "lshw": {
+                            "type": "object",
+                            "description": "The output of lshw as JSON"
+                        }
+                    }
+                },
+                "environment": {
+                    "type": "object",
+                    "properties": {
+                        "nvidia_query": { 
+                            "type": "object",
+                            "description": "The output from nvidia-smi as JSON" 
+                        },
+                        "requirements": {
+                            "type": "object",
+                            "description": "the python libraries used as a list of strings"
+                        }
+                    }
+                }            
+            }
+        }
+   }
+}
