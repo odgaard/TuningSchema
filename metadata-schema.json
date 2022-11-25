@@ -1,9 +1,15 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://github.com/odgaard/TuningSchema/blob/main/MetadataSchema.json",
+    "$id": "https://github.com/odgaard/TuningSchema/blob/T4/metadata-schema.json",
     "title": "Open Autotuning Metadata Schema",
     "type": "object",
     "properties": {
+        "schema_version": {
+            "description": "The version number of the schema in major.minor.patch format.",
+            "type": "string",
+            "pattern": "^[0-9]{1,}.[0-9]{1,}.[0-9]{1,}$",
+            "example": "1.0.0"
+        },
         "metadata": {
             "type": "object",
             "properties": {
@@ -23,16 +29,16 @@
                 "environment": {
                     "type": "object",
                     "properties": {
-                        "nvidia_query": { 
+                        "device_query": {
                             "type": "object",
-                            "description": "The output from nvidia-smi as JSON" 
+                            "description": "The output from tools such as nvidia-smi as JSON"
                         },
                         "requirements": {
                             "type": "object",
                             "description": "the python libraries used as a list of strings"
                         }
                     }
-                }            
+                }
             }
         }
    }
