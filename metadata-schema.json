@@ -21,7 +21,7 @@
                     "type": "object",
                     "properties": {
                         "lshw": {
-                            "type": "object",
+                            "type": "array",
                             "description": "The output of lshw as JSON"
                         }
                     }
@@ -34,7 +34,7 @@
                             "description": "The output from tools such as nvidia-smi as JSON"
                         },
                         "requirements": {
-                            "type": "object",
+                            "type": "array",
                             "description": "the python libraries used as a list of strings"
                         }
                     }
