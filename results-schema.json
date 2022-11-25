@@ -45,7 +45,7 @@
                         }
                     },
                     "invalidity": {
-                        "enum": ["timeout", "compile", "runtime", "correctness", "constraints"]
+                        "enum": ["timeout", "compile", "runtime", "correctness", "constraints", "correct"]
                     },
                     "correctness": {
                         "type": "number"
