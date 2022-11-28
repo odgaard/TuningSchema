@@ -96,21 +96,24 @@
             }
         },
         "Budget": {
-            "type": "object",
-            "required": [
-                "Type",
-                "BudgetValue"
-            ],
-            "properties": {
-                "Type": {
-                    "enum": [
-                        "TuningDuration",
-                        "ConfigurationCount",
-                        "ConfigurationFraction"
-                    ]
-                },
-                "BudgetValue": {
-                    "type": "number"
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": [
+                    "Type",
+                    "BudgetValue"
+                ],
+                "properties": {
+                    "Type": {
+                        "enum": [
+                            "TuningDuration",
+                            "ConfigurationCount",
+                            "ConfigurationFraction"
+                        ]
+                    },
+                    "BudgetValue": {
+                        "type": "number"
+                    }
                 }
             }
         },
@@ -324,6 +327,42 @@
                                     "Symbol"
                                 ]
                             }
+                        }
+                    }
+                },
+                "ReferenceArguments": {
+                    "type": "array",
+                    "required": [
+                        "Name",
+                        "TargetName",
+                        "FillType"
+                    ],
+                    "properties": {
+                        "Name": {
+                            "type": "string"
+                        },
+                        "TargetName": {
+                            "type": "string"
+                        },
+                        "FillType": {
+                            "enum": [
+                                "Constant",
+                                "Random",
+                                "Generator",
+                                "Script",
+                                "BinaryRaw",
+                                "BinaryHDF"
+                            ]
+                        },
+                        "FillValue": {
+                            "type": "number",
+                            "examples": [
+                                40,
+                                1.0
+                            ]
+                        },
+                        "DataSource": {
+                            "type": "string"
                         }
                     }
                 }
