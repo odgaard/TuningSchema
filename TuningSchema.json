@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/HiPerCoRe/KTT/blob/development/TuningLoader/TuningFormatSchema.json",
+    "$id": "https://github.com/odgaard/TuningSchema/blob/main/TuningSchema.json",
     "title": "Tuning format",
     "description": "A description of a tuning problem which can be loaded by an autotuning framework",
     "type": "object",
@@ -96,21 +96,24 @@
             }
         },
         "Budget": {
-            "type": "object",
-            "required": [
-                "Type",
-                "BudgetValue"
-            ],
-            "properties": {
-                "Type": {
-                    "enum": [
-                        "TuningDuration",
-                        "ConfigurationCount",
-                        "ConfigurationFraction"
-                    ]
-                },
-                "BudgetValue": {
-                    "type": "number"
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": [
+                    "Type",
+                    "BudgetValue"
+                ],
+                "properties": {
+                    "Type": {
+                        "enum": [
+                            "TuningDuration",
+                            "ConfigurationCount",
+                            "ConfigurationFraction"
+                        ]
+                    },
+                    "BudgetValue": {
+                        "type": "number"
+                    }
                 }
             }
         },
@@ -186,6 +189,13 @@
                     "items": {
                         "type": "string"
                     }
+                },
+                "GlobalSizeType": {
+                    "enum": [
+                        "OpenCL",
+                        "CUDA",
+                        "Vulkan"
+                    ]
                 },
                 "SharedMemory": {
                     "type": "integer"
@@ -317,6 +327,42 @@
                                     "Symbol"
                                 ]
                             }
+                        }
+                    }
+                },
+                "ReferenceArguments": {
+                    "type": "array",
+                    "required": [
+                        "Name",
+                        "TargetName",
+                        "FillType"
+                    ],
+                    "properties": {
+                        "Name": {
+                            "type": "string"
+                        },
+                        "TargetName": {
+                            "type": "string"
+                        },
+                        "FillType": {
+                            "enum": [
+                                "Constant",
+                                "Random",
+                                "Generator",
+                                "Script",
+                                "BinaryRaw",
+                                "BinaryHDF"
+                            ]
+                        },
+                        "FillValue": {
+                            "type": "number",
+                            "examples": [
+                                40,
+                                1.0
+                            ]
+                        },
+                        "DataSource": {
+                            "type": "string"
                         }
                     }
                 }
