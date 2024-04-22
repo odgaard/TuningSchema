@@ -3,8 +3,6 @@ import json
 import jc
 import xmltodict
 
-from batbench.result.zenodo import Zenodo
-
 class Metadata:
     """
     A class that provides methods to retrieve metadata about the environment and hardware.
@@ -12,7 +10,15 @@ class Metadata:
     @staticmethod
     def get_metadata():
         metadata = {}
+        from batbench.result.zenodo import Zenodo
         metadata["zenodo"] = Zenodo.get_zenodo_metadata()
+        metadata["environment"] = Metadata.get_environment_metadata()
+        metadata["hardware"] = Metadata.get_hardware_metadata()
+        return metadata
+
+    @staticmethod
+    def get_metadata_without_zenodo():
+        metadata = {}
         metadata["environment"] = Metadata.get_environment_metadata()
         metadata["hardware"] = Metadata.get_hardware_metadata()
         return metadata
@@ -46,8 +52,11 @@ class Metadata:
 
     @staticmethod
     def save_requirements():
-        with open("requirements.txt", 'r', encoding='utf-8') as file:
-            requirements_list = [line.strip() for line in file.readlines()]
+        try:
+            with open("requirements.txt", 'r', encoding='utf-8') as file:
+                requirements_list = [line.strip() for line in file.readlines()]
+        except FileNotFoundError:
+            return []
         return requirements_list
 
     @staticmethod
