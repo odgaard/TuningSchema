@@ -10,7 +10,7 @@ class Metadata:
     @staticmethod
     def get_metadata():
         metadata = {}
-        from batbench.result.zenodo import Zenodo
+        from .zenodo import Zenodo
         metadata["zenodo"] = Zenodo.get_zenodo_metadata()
         metadata["environment"] = Metadata.get_environment_metadata()
         metadata["hardware"] = Metadata.get_hardware_metadata()
