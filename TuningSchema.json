@@ -380,6 +380,16 @@
                         },
                         "RandomSeed": {
                             "type": "integer"
+                        },
+                        "ValidationMethod": {
+                            "enum": [
+                                "AbsoluteDifference",
+                                "SideBySideComparison",
+                                "SideBySideRelativeComparison"
+                            ]
+                        },
+                        "ValidationThreshold": {
+                            "type": "number"
                         }
                     }
                 }
