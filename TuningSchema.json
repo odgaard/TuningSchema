@@ -168,10 +168,13 @@
                 "Device": {
                     "type": "object",
                     "required": [
-                        "Id"
+                        "DeviceId"
                     ],
                     "properties": {
-                        "Id": {
+                        "PlatformId": {
+                            "type: "integer"
+                        },
+                        "DeviceId": {
                             "type": "integer"
                         },
                         "Name": {
