@@ -167,12 +167,9 @@
             "properties": {
                 "Device": {
                     "type": "object",
-                    "required": [
-                        "DeviceId"
-                    ],
                     "properties": {
                         "PlatformId": {
-                            "type: "integer"
+                            "type": "integer"
                         },
                         "DeviceId": {
                             "type": "integer"
