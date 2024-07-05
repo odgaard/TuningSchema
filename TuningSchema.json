@@ -165,6 +165,20 @@
                 "LocalSize"
             ],
             "properties": {
+                "Device": {
+                    "type": "object",
+                    "properties": {
+                        "PlatformId": {
+                            "type": "integer"
+                        },
+                        "DeviceId": {
+                            "type": "integer"
+                        },
+                        "Name": {
+                            "type": "string"
+                        }
+                    }
+                },
                 "Language": {
                     "enum": [
                         "OpenCL",
@@ -178,17 +192,14 @@
                         "type": "string"
                     }
                 },
+                "Profiling": {
+                    "type": "boolean"
+                },                    
                 "KernelName": {
                     "type": "string"
                 },
                 "KernelFile": {
                     "type": "string"
-                },
-                "KernelTypeNames": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
                 },
                 "GlobalSizeType": {
                     "enum": [
@@ -312,6 +323,9 @@
                             "DataSource": {
                                 "type": "string"
                             },
+                            "RandomSeed": {
+                                "type": "integer"
+                            },
                             "AccessType": {
                                 "enum": [
                                     "ReadOnly",
@@ -363,6 +377,19 @@
                         },
                         "DataSource": {
                             "type": "string"
+                        },
+                        "RandomSeed": {
+                            "type": "integer"
+                        },
+                        "ValidationMethod": {
+                            "enum": [
+                                "AbsoluteDifference",
+                                "SideBySideComparison",
+                                "SideBySideRelativeComparison"
+                            ]
+                        },
+                        "ValidationThreshold": {
+                            "type": "number"
                         }
                     }
                 }
